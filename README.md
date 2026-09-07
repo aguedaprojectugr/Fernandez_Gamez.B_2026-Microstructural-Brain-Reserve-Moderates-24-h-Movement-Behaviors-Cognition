@@ -5,7 +5,9 @@ ________________________________________________________________________________
 
 **Citation:**
 Fernandez-Gamez B, Solis-Urra P, Sanchez-Martinez J, Sclafani A, Olvera-Rojas M, Rodríguez-Palacios MT, Mellow LM, Dumuid D, Smith AE, Ortega FB, Esteban-Cornejo I. Microstructural Brain Reserve Moderates the Associations Between 24-h Movement Behaviors and Cognition in Older Adults: Cross-Sectional Findings From the AGUEDA Trial. Scandinavian Journal of Medicine & Science in Sports. 2026. https://doi.org/10.1111/sms.70360
-The lead author was Beatriz Fernandez-Gamez, alongside Patricio Solis-Urra, Javier Sanchez-Martinez, Alessandro Sclafani, Marcos Olvera-Rojas, María T. Rodríguez-Palacios, Lincoln M. Mellow, Dorothea Dumuid, Ashleigh E. Smith, Francisco B. Ortega, and Irene Esteban-Cornejo._____________________________________________________________________________________________________
+The lead author was Beatriz Fernandez-Gamez, alongside Patricio Solis-Urra, Javier Sanchez-Martinez, Alessandro Sclafani, Marcos Olvera-Rojas, María T. Rodríguez-Palacios, Lincoln M. Mellow, Dorothea Dumuid, Ashleigh E. Smith, Francisco B. Ortega, and Irene Esteban-Cornejo.
+
+_____________________________________________________________________________________________________
 
 The following is a list of the researchers of the study
 

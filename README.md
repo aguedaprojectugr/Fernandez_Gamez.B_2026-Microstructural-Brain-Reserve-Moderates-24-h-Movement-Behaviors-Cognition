@@ -11,17 +11,17 @@ ________________________________________________________________________________
 
 The following is a list of the researchers of the study
 
-Beatriz Fernandez-Gamez: Lead author, predoctoral researcher, and study analyst (beatrizfg@ugr.es)
+Beatriz Fernandez-Gamez: Lead author, predoctoral researcher (beatrizfg@ugr.es)
 
 Patricio Solis-Urra: Postdoctoral researcher and project coordinator (patricio.solisurra@adventhealth.com)
 
-Javier Sanchez-Martinez: Researcher in charge of statistical modeling and CoDA scripts (sanchezjavier.andre@gmail.com)
+Javier Sanchez-Martinez: Predoctoral researcher in charge of the AD signatures creation (sanchezjavier.andre@gmail.com)
 
 Alessandro Sclafani: Predoctoral researcher in charge of accelerometry processing (alessandro.sclafani0@gmail.com)
 
 Marcos Olvera-Rojas: Predoctoral researcher and biological sample manager (olvera@ugr.es)
 
-María T. Rodríguez-Palacios: Collaborating researcher and data analyst (mariateresarp@correo.ugr.es)
+María T. Rodríguez-Palacios: Collaborating researcher (mariateresarp@correo.ugr.es)
 
 Maddison L. Mellow: Collaborating researcher in movement behaviors (Maddison.Mellow@unisa.edu.au)
 

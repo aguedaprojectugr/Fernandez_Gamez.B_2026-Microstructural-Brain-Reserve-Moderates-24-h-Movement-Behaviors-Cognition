@@ -1,0 +1,234 @@
+---
+author: "Draf of CODA results"
+output: officedown::rdocx_document
+word_document:
+  reference_docx: custom_template.docx
+header-includes: 
+ \usepackage{geometry}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+pacman::p_load(tidyverse, openxlsx,readxl,cutpointr, flextable)
+```
+**Tentative tittle: 
+Association of 24h-movement behaviors with cognition and Alzheimer's disease brain signatures in cognitively normal older adults: a compositional data analysis from the AGUEDA trial ** 
+
+*Corresponding author: Beatriz Fernandez-Gamez & Irene-Esteban-Cornejo. Department of Physical Education and Sports, Faculty of Sports Science, University of Granada; Carretera de Alfacar, 21. Granada 18071, Spain; +(34) 958 24 66 51, fax: +(34) 958 24 94 28 
+E-mail address: beatrizfg@ugr.es & ireneesteban@ugr
+
+\pagebreak
+
+\pagebreak
+
+#Principal paper
+##Table 1. Descriptive characteristics of the study sample
+```{r echo=F}
+library(flextable)
+flextable::set_flextable_defaults(font.family = "Arial", font.size = 7, layout = "autofit",border.color = "black",split = T, padding = 2, test.align = "center")
+t1 <- read_excel("C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/table1.xlsx")
+##t1= flextable(t1)
+t1 = flextable::as_flextable(t1,show_coltype = F, max_row = 40)
+t1 = align(t1,align ="center", part = "all")
+t1 <- align(t1, align = "left", part = "body", j = 1)
+t1 = add_header_row(t1, top =TRUE, values = c("", "Total","Gray matter mean diffusivity signature","","Tthickness/volume signature",""))
+t1 = set_header_labels(t1,rn ="", Overall = "Mean ± SD",  `0` = "Lower levels",  `1`= "Higher levels",   `0.1` = "Lower levels",  `1.1`= "Higher levels")
+t1 = add_footer_lines(t1 ,"Abbreviations: acc, accuracy; AD,Alzheimer’s disease; CL, centiloid; n, number; y, years; SD, standard deviation; sec, seconds; min, minutes; cm, centimeters; m, meters; rt, reaction time; ilr,isometric log-ratio coordinate. ")
+t1 <- padding(t1, i=c(1,3:11,13:15,17:21,23:24,26:29), j=1, padding.left=20) ##i=Variable and j=Colum
+t1 <- bold(t1, i = c(2,12, 16, 22,25 ), j = 1) ##Negrita words
+set_caption(t1, caption = "")
+```
+\pagebreak
+
+<!---BLOCK_LANDSCAPE_START--->
+##Figure 1.Ternary plots for: (A) the daily time-use in MVPA, LPA, and SB (in %); (B) the daily time-use in PA, Sleep, SB (in %) stratified by higher and lower mean values of gray matter mean diffusivity signature. 
+
+```{r echo=FALSE,fig.height=3, fig.width=8, fig.align="center"}  
+#| echo: false 
+#| fig-cap: "Ternary plots for the daily time-use in MVPA, LPA, and SB (in %) and the daily time-use in PA, Sleep, SB (in %) stratified by higher and lower mean values of gray matter mean diffusivity signature and thickness/volume signature.Values represent compositional geometric means (expressed in % and minutes/day). The crosshair marks the compositional geometric mean in %. Concentric rings represent the 25%, 50%, and 75% estimated confidence regions for the data. PA: Physical Activity; MVPA: Moderate-to-Vigorous Physical Activity; LPA: Light Physical Activity; SB: Sedentary Behavior."
+
+knitr::include_graphics(
+  "C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/fig1_combined.png")
+```
+
+\pagebreak
+##Figure 2.Linear regression models showing the associations of movement behaviors with cognitive domains and Alzheimer's disease brain signatures.
+```{r echo=FALSE,fig.height=5, fig.width=9, fig.align="center"} 
+#| echo: false 
+#| fig-cap: "Linear regression models showing the associations of movement behaviors (using a compositional analysis approach) with cognitive domains and Alzheimer's disease brain signatures. For each behavior, independent models were constructed. Models for cognitive domains were adjusted for sex, age, and education level, whereas models for Alzheimer's disease brain signatures were adjusted for sex and education level only. In all models, the isometric log-ratio coordinates of the movement behaviors were included as predictor variables. The table reports the results for the coordinate of the dominant behavior relative to the other behaviors. β: Unstandardized beta coefficients indicate how much the outcome changes for a one-unit increase in the respective isometric log-ratio coordinate. This reflects a proportional increase in the dominant behavior relative to the rest of behaviors. "
+
+knitr::include_graphics( "C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/fig2_all.png")
+```
+
+\pagebreak
+
+##Figure 3.Linear regression models showing the associations of movement behaviors with cognitive domains and Alzheimer's disease brain signatures stratified by higher and lower mean values of gray matter mean diffusivity signature.
+
+```{r echo=FALSE,fig.height=6, fig.width=9, fig.align="center"}  
+#| echo: false 
+#| fig-cap: "Figure 3.Linear regression models showing the associations of movement behaviors (using a compositional analysis approach) with cognitive domains and Alzheimer’s Disease brain signatures stratified by higher and lower values of gray matter mean diffusivity signature. Participants were classified as “higher GMMD” or “lower GMMD” based on the median of the total levels. For each behavior, independent models were constructed, adjusted for sex and education level, in which the isometric log-ratio coordinates of the movement behaviors were included as predictor variables. The figure displays the results for the coordinate of the dominant behavior relative to the other behaviors.β: Unstandardized beta coefficients indicate how much the outcome changes for a one-unit increase in the respective isometric log-ratio coordinates. This reflects a proportional increase in the dominant behavior relative to the rest of behaviors."
+
+knitr::include_graphics( "C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/fig3_moderators.png")
+```
+
+\pagebreak
+
+#Supplementary material
+##Table S1. ANOVA F-tests for the association between 24-hour movement behavior composition and cognitive performance, and moderation by AD brain signatures
+
+```{r echo=F}
+library(readxl)
+library(flextable)
+library(dplyr)
+library(officer)
+
+flextable::set_flextable_defaults(
+  font.family = "Arial",
+  font.size = 9,
+  layout = "fixed",
+  border.color = "black",
+  split = TRUE,
+  padding = 1,
+  text.align = "center"
+)
+
+t1 <- read_excel("C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/table_anova.xlsx")
+
+# Si el Excel ya tiene filas de encabezado dentro de la tabla, eliminarlas
+# Esto elimina filas tipo "Variable / Episodic memory..." y la fila "F / P"
+t1 <- t1 %>%
+  filter(
+    !Variable %in% c("Variable", "", NA)
+  )
+
+# Acortar nombres de columnas para trabajar más fácil
+names(t1) <- c(
+  "Variable",
+  "Attention_F", "Attention_P",
+  "Episodic_F", "Episodic_P",
+  "Processing_F", "Processing_P",
+  "Visuospatial_F", "Visuospatial_P",
+  "Working_F", "Working_P"
+  
+)
+
+t1 <- flextable(t1)
+
+t1 <- align(t1, align = "center", part = "all")
+t1 <- align(t1, align = "left", part = "body", j = 1)
+
+t1 <- set_header_labels(
+  t1,
+  Variable = "Variable",
+  `Attentional/inhibitory control_F` = "F",
+  `Attentional/inhibitory control_P` = "P",
+  `Episodic memory_F` = "F",
+  `Episodic memory_P` = "P",
+  `Processing speed_F` = "F",
+  `Processing speed_P` = "P",
+  `Visuospatial processing_F` = "F",
+  `Visuospatial processing_P` = "P",
+  `Working memory_F` = "F",
+  `Working memory_P` = "P"
+)
+
+t1 <- add_header_row(
+  t1,
+  values = c(
+    "",
+    "Attention/\ninhibition",
+    "Episodic\nmemory",
+    "Processing\nspeed",
+    "Visuospatial\nprocessing",
+    "Working\nmemory"
+  ),
+  colwidths = c(1, 2, 2, 2, 2, 2)
+)
+
+# Anchos compactos pero legibles
+t1 <- width(t1, j = 1, width = 1.80)
+t1 <- width(t1, j = c(2, 4, 6, 8, 10), width = 0.46) # F
+t1 <- width(t1, j = c(3, 5, 7, 9, 11), width = 0.50) # P
+
+# Fuente más grande
+t1 <- fontsize(t1, size = 9, part = "body")
+t1 <- fontsize(t1, size = 8.5, part = "header")
+t1 <- fontsize(t1, size = 7.5, part = "footer")
+
+# Compactar sin hacerlo minúsculo
+t1 <- padding(t1, padding.top = 1, padding.bottom = 1, padding.left = 1, padding.right = 1, part = "all")
+
+# Formato
+t1 <- bold(t1, j = 1, part = "body")
+t1 <- bold(t1, part = "header")
+t1 <- align(t1, align = "center", part = "header")
+t1 <- align(t1, align = "left", part = "footer")
+
+t1 <- add_footer_lines(
+  t1,
+  "ANOVA F-test from linear regression model comparisons investigating associations between overall 24-hour movement behavior composition and each cognitive domain, and whether these associations were moderated by Alzheimer’s disease brain signatures. The 24-hour movement behavior composition was represented by three isometric log-ratio coordinates. Moderation was tested by comparing models with and without the three ILR × moderator interaction terms. GMMD and thickness/volume signatures were tested in separate models. Abbreviations: F, F statistic; P, P-value; GMMD, gray matter mean diffusivity; Attention/inhibition, attentional/inhibitory control."
+)
+
+t1 <- fontsize(t1, size = 7.5, part = "footer")
+t1 <- align(t1, align = "left", part = "footer")
+
+set_caption(t1, caption = "")
+```
+
+##Table S2. Linear regression models showing the associations of movement behaviors with cognitive domains and Alzheimer's disease brain signatures moderated by AD brain signatures.
+
+```{r echo=F}
+library(flextable)
+flextable::set_flextable_defaults(font.family = "Arial", font.size = 7, layout = "autofit",border.color = "black",split = T, padding = 2, test.align = "center")
+t1 <- read_excel("C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/table_interaction_brain.xlsx")
+##t1= flextable(t1)
+t1 <- t1[-1, ]
+t1 = flextable::as_flextable(t1,show_coltype = F, max_row = 40)
+t1 = align(t1,align ="center", part = "all")
+t1 <- align(t1, align = "left", part = "body", j = 1)
+t1 <- set_header_labels(
+  t1,
+  Behavior = "Behavior",
+  n_ct = "n", beta_ct = "β (95%CI)", pval_ct = "p-value",
+  n_gmd = "n", beta_gmd = "β (95%CI)", pval_gmd = "p-value"
+)
+t1 <- colformat_num(
+  t1, 
+  j = c("pval_ct", "pval_gmd"), 
+  digits = 2
+)
+t1 <- add_header_row(
+  t1,
+  values = c("", "Thickness/volume signature ", "Gray matter mean diffusivity signature "),
+  colwidths = c(1, 3, 3)
+)
+t1 = add_footer_lines(t1 ,"For each behavior, independent models were constructed in which the isometric log-ratio coordinates of the movement behaviors were included as predictor variables. Models were adjusted for age and education. The table reports the results for the coordinate of the dominant behavior relative to the other behaviors. Abbreviations: 95%CI: 95% confidence interval. β: Unstandardized beta coefficients indicate how much the outcome changes for a one-unit increase in the respective ILR coordinate. This reflects a proportional increase in the dominant behavior relative to the rest of behaviors.")
+t1 <- padding(t1, i=c(2:5,7:10,12:15,17:20,22:25), j=1, padding.left=20) ##i=Variable and j=Colum
+t1 <- bold(t1, i = c(1,6,11,16,21), j = 1) ##Negrita words
+set_caption(t1, caption = "")
+```
+\pagebreak
+
+##Figure S1.Correlation matrix
+
+```{r echo=FALSE, fig.align="center"}  
+#| echo: false 
+#| fig-cap: "Figure S1.Pearson correlations between cognitive outcomes and AD signatures. Color bar represents the strength of the correlation as r values. The darker blue the color, the stronger the positive correlation between variables, and the darker red the color, the stronger the negative correlation between variables. Blank spaces represent non – significant correlations. Higher values of the gray matter mean diffusivity (GMMD) signature indicate greater microstructural brain disruption (worse brain integrity), whereas higher cortical thickness/volume signature values indicate better structural integrity."
+
+knitr::include_graphics("C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/fig_correlation.tiff")
+```
+\pagebreak
+
+##Figure S2.Pairwise associations between movement behaviors and cognitive outcomes among participants stratified by higher and lower mean values of gray matter mean diffusivity signature
+
+```{r echo=FALSE, fig.align="center"}  
+#| echo: false 
+#| fig-cap: "Figure S2.Pairwise isotemporal reallocations of time between movement behaviors in relation to cognitive outcomes showing significant associations, stratified by high and low mean values of gray matter mean diffusivity signature. This figure illustrates the estimated differences in cognitive outcomes associated with reallocating time (minutes per day) between pairs of movement behaviors — Moderate-to-Vigorous Physical Activity (MVPA), Light Physical Activity (LPA), Sedentary Behavior (SB), and Sleep — among individuals with lower and higher levels of the Grey Matter Mean Diffusion AD signature."
+
+knitr::include_graphics("C:/Users/Beatr/Desktop/Profith/Agueda/Proyectos_R/Acc_script/processed_data/fig4_relocations_P.png")
+```
+
+
+
+<!---BLOCK_LANDSCAPE_STOP--->

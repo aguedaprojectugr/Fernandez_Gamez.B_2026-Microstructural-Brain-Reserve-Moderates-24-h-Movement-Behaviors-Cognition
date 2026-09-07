@@ -1,0 +1,11 @@
+The repository is organized as follows:
+
+-At the root level of the repository:
+
+Acc_data.Rproj R project file to facilitate reproducibility and organization of the analyses.
+
+-raw_data. Folder intended to store the datasets used in the analyses.
+-processed_data. Folder intended to store the outputs of the analyses.
+-scripts.  Folder storing the scripts used in the analyses.
+
+⚠️ The data are not publicly available and must be requested from the data owners.
